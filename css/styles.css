@@ -1,0 +1,103 @@
+/* ============================================================
+   THE NATIONAL SATIRER — Design System
+   styles.css  ·  keyframes + a few reusable primitives
+   Load AFTER tokens.css. Fonts (Google): Anton, Oswald 400-700,
+   PT Serif 400/700 + italics.
+   ============================================================ */
+
+/* ---------- Keyframes (all decorative, all infinite) ---------- */
+@keyframes sat-pulse       { 0%,100%{transform:rotate(-8deg) scale(1)} 50%{transform:rotate(-8deg) scale(1.12)} }
+@keyframes sat-spin        { to{transform:rotate(360deg)} }
+@keyframes sat-blink       { 0%,49%{opacity:1} 50%,100%{opacity:.15} }
+@keyframes sat-hue         { to{filter:hue-rotate(360deg)} }
+@keyframes sat-wobble      { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
+@keyframes sat-jitter      { 0%,100%{transform:translate(0,0) rotate(-1deg)} 25%{transform:translate(1px,-1px) rotate(1deg)} 50%{transform:translate(-1px,1px) rotate(-1deg)} 75%{transform:translate(1px,1px) rotate(1deg)} }
+@keyframes sat-marquee     { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes sat-flash-bg    { 0%,100%{background:var(--sat-red)} 33%{background:var(--sat-cyan)} 66%{background:var(--sat-purple)} }
+@keyframes sat-bounce      { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes sat-tape        { 0%,100%{transform:rotate(-4deg) scale(1)} 50%{transform:rotate(-4deg) scale(1.04)} }
+@keyframes sat-flashborder { 0%,100%{border-color:var(--sat-red);box-shadow:0 0 0 0 #ff2e6355} 50%{border-color:var(--sat-yellow);box-shadow:0 0 22px 4px #ffe60088} }
+@keyframes sat-shake       { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-3px) rotate(-1deg)} 40%{transform:translateX(3px) rotate(1deg)} 60%{transform:translateX(-2px)} 80%{transform:translateX(2px)} }
+@keyframes sat-slide-color { 0%{color:var(--sat-red)} 33%{color:var(--sat-purple)} 66%{color:var(--sat-green)} 100%{color:var(--sat-red)} }
+
+/* Accessibility: kill the chaos for motion-sensitive users */
+@media (prefers-reduced-motion: reduce) {
+  [class*="sat-anim"], .sat-marquee-track { animation: none !important; }
+}
+
+/* ---------- Reusable primitives ---------- */
+.sat-page {
+  background: var(--sat-backdrop);
+  background-image: repeating-linear-gradient(45deg, var(--sat-backdrop-alt) 0 22px, var(--sat-backdrop) 22px 44px);
+  font-family: var(--sat-font-body);
+  overflow-x: hidden;
+}
+.sat-canvas {
+  max-width: var(--sat-canvas-max);
+  margin: 0 auto;
+  background: var(--sat-paper);
+  border: var(--sat-border);
+  box-shadow: var(--sat-shadow-card);
+}
+
+/* Display headline */
+.sat-headline {
+  font-family: var(--sat-font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: .88;
+  letter-spacing: var(--sat-tracking-tight);
+  color: var(--sat-ink);
+  margin: 0;
+}
+
+/* Kicker / label */
+.sat-kicker {
+  font-family: var(--sat-font-ui);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--sat-tracking-ui);
+}
+
+/* Banner chip */
+.sat-banner {
+  font-family: var(--sat-font-ui);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--sat-tracking-ui);
+  color: var(--sat-paper);
+  background: var(--sat-red);
+  display: inline-block;
+  padding: 5px 14px;
+}
+.sat-banner--yellow { background: var(--sat-yellow); color: var(--sat-ink); }
+.sat-banner--ink    { background: var(--sat-ink);    color: var(--sat-yellow); }
+
+/* Photo placeholder */
+.sat-photo {
+  background: repeating-linear-gradient(45deg, var(--sat-photo-a) 0 12px, var(--sat-photo-b) 12px 24px);
+  border: var(--sat-border);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--sat-font-ui); text-transform: uppercase;
+  font-size: 13px; letter-spacing: .1em; color: var(--sat-caption);
+}
+
+/* Body copy */
+.sat-body { font-family: var(--sat-font-body); color: var(--sat-ink); line-height: 1.55; }
+.sat-deck { font-family: var(--sat-font-body); font-style: italic; color: var(--sat-ink-soft); }
+
+/* Links */
+.sat-link { color: var(--sat-red); text-decoration: none; font-weight: 700; }
+.sat-link:hover { background: var(--sat-yellow); color: var(--sat-ink); text-decoration: underline; }
+
+/* Animation utility classes (attach to any element) */
+.sat-anim-pulse       { animation: sat-pulse 1.6s ease-in-out infinite; }
+.sat-anim-spin        { animation: sat-spin 6s linear infinite; }
+.sat-anim-blink       { animation: sat-blink 1.2s steps(1) infinite; }
+.sat-anim-hue         { animation: sat-hue 5s linear infinite; }
+.sat-anim-wobble      { animation: sat-wobble 3s ease-in-out infinite; }
+.sat-anim-bounce      { animation: sat-bounce 1s ease-in-out infinite; }
+.sat-anim-shake       { animation: sat-shake 3s ease-in-out infinite; }
+.sat-anim-flashborder { animation: sat-flashborder 1.4s ease-in-out infinite; }
+.sat-anim-flashbg     { animation: sat-flash-bg 3s steps(1) infinite; }
+.sat-anim-colorcycle  { display: inline-block; animation: sat-slide-color 2.5s linear infinite; }

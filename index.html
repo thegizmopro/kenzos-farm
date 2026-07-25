@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The National Satirer — A.D.D. Edition. Entirely fictional. Suspiciously delicious. A tabloid-parody personal homepage.">
+  <title>The National Satirer · A.D.D. Edition</title>
+
+  <!-- Fonts: Anton (display) / Oswald (UI) / PT Serif (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Design system: tokens first, then primitives/keyframes, then page layout -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body class="ns-page">
+
+  <!-- floating background confetti -->
+  <div class="ns-confetti-ring" aria-hidden="true"></div>
+  <div class="ns-confetti-star" aria-hidden="true"></div>
+
+  <div class="ns-canvas sat-canvas">
+
+    <!-- ===================== 1. BREAKING NEWS MARQUEE ===================== -->
+    <div class="ns-marquee" aria-label="Breaking news ticker">
+      <!-- duplicated set so the -50% translate loop is seamless -->
+      <div class="ns-marquee-track">
+        <span>★ BREAKING</span><span class="m-cyan">Beard achieves sentience</span><span class="m-red">★ SHOCKING</span><span class="m-paper">Croissant cartel expands into West County</span><span>★ EXCLUSIVE</span><span class="m-purple">Man naps for 6 weeks, thrives</span>
+        <span>★ BREAKING</span><span class="m-cyan">Beard achieves sentience</span><span class="m-red">★ SHOCKING</span><span class="m-paper">Croissant cartel expands into West County</span><span>★ EXCLUSIVE</span><span class="m-purple">Man naps for 6 weeks, thrives</span>
+      </div>
+    </div>
+
+    <!-- ===================== 2. TAGLINE BAR ===================== -->
+    <div class="ns-tagline">The Truth Is In Here · Sort Of · Do Not Trust A Single Word</div>
+
+    <!-- ===================== 3. MASTHEAD ===================== -->
+    <header class="ns-masthead">
+      <div class="ns-masthead-row">
+        <div class="ns-masthead-vol">
+          <span class="chip">World Exclusive</span>
+          <div class="meta">Vol. II · No. 405</div>
+          <div class="meta">The A.D.D. Edition</div>
+        </div>
+        <h1 class="ns-title">The National<br>Satirer</h1>
+        <div class="ns-masthead-price">
+          <div class="ns-price">$4<span class="cents">.99</span></div>
+          <div class="ns-barcode" aria-hidden="true"></div>
+          <div class="ns-barcode-code">0 000405 999999</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== 4. TEASER STRIP ===================== -->
+    <nav class="ns-teaser" aria-label="Sections">
+      <a class="ns-teaser-cell" href="#lead"    style="background:var(--sat-red);    color:var(--sat-paper);">Poolside Bombshell</a>
+      <a class="ns-teaser-cell" href="#beard"   style="background:var(--sat-yellow); color:var(--sat-ink);">Beard Watch 2026</a>
+      <a class="ns-teaser-cell" href="#bakery"  style="background:var(--sat-green);  color:var(--sat-paper);">Bakery Empire Exposed</a>
+      <a class="ns-teaser-cell" href="#stars"   style="background:var(--sat-purple); color:var(--sat-paper);">Horoscopes → Doomed</a>
+    </nav>
+
+    <main>
+
+      <!-- ===================== 5. LEAD STORY ===================== -->
+      <section class="ns-lead" id="lead">
+        <div class="ns-starburst"><span>World<br>Exclusive!</span></div>
+
+        <span class="ns-lead-chip">⚡ Shocking Poolside Photos ⚡</span>
+
+        <h2 class="ns-lead-headline">Kenzo Bradbury:<br>Dad Bod or <span class="cycle">Father Figure?</span></h2>
+
+        <p class="ns-lead-deck">Sources say the reclusive multi-hyphenate hasn't left his lounge chair in <strong>SIX WEEKS</strong> — and insiders are "concerned, but honestly kind of impressed."</p>
+
+        <div class="ns-lead-grid">
+          <div>
+            <div class="ns-photo ns-photo--lead">
+              <img class="ns-photo-img" src="img/leo-dicap.jpg" alt="A bearded man reclining poolside in a paparazzi-style shot — allegedly the star, mid-snack.">
+              <div class="ns-shame" aria-hidden="true"></div>
+              <div class="ns-evidence">← The<br>Evidence</div>
+              <div class="ns-tape">Caught!!</div>
+            </div>
+            <div class="ns-caption">Above: The star, mid-snack, allegedly. Photo: our very brave freelancer.</div>
+          </div>
+
+          <div class="ns-lead-body">
+            <p><span class="ns-dropcap">I</span>t was supposed to be a quiet afternoon. It was not. Witnesses report Kenzo Bradbury reclining "with the confidence of a man who has never once checked his email," a paper plate balanced on his chest like a medal of honor.</p>
+            <p>"He looked serene. Radiant, even," said a neighbor who asked to remain anonymous, then immediately gave us their full name. "Is it a dad bod? Is it a father figure? Frankly it's both. It's a lifestyle."</p>
+            <p>Reps for the star declined to comment, mostly because the star is his own rep and he was napping. <!-- TODO: wire to portfolio gallery -->
+              <a class="sat-link" href="#">SEE THE FULL SHOCKING GALLERY → (his portfolio)</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 6. THREE-COLUMN SPREAD ===================== -->
+      <section class="ns-spread">
+
+        <!-- LEFT: HOT SHEET -->
+        <aside class="ns-hot">
+          <div class="ns-bar ns-bar--hot">The Hot Sheet</div>
+          <div class="ns-hot-sub">Everything · Nobody · Asked</div>
+
+          <div class="ns-hot-item">
+            <div class="ns-hot-kicker ns-hot-kicker--purple ns-hot-kicker--blink">● Spotted</div>
+            <p>Local barista pulls a <strong>THIRD</strong> shot before 9am. Regulars described as "shook." <!-- TODO: café URL --> <a class="sat-link" href="#">More at the café →</a></p>
+          </div>
+          <div class="ns-hot-item">
+            <div class="ns-hot-kicker ns-hot-kicker--red">● Feud Watch</div>
+            <p>The dog-park cold war enters its 14th week. Neither Labrador will comment.</p>
+          </div>
+          <div class="ns-hot-item">
+            <div class="ns-hot-kicker ns-hot-kicker--purple ns-hot-kicker--blink">● Bombshell</div>
+            <p>Corner-store cat suspected of running a "small but ruthless" snack empire.</p>
+          </div>
+          <div class="ns-hot-item">
+            <div class="ns-hot-kicker ns-hot-kicker--red">● Friends &amp; Enablers</div>
+            <p>Insiders say the whole gang is "up to something." <!-- TODO: friends files URL --> <a class="sat-link" href="#">The friends files →</a></p>
+          </div>
+          <div class="ns-hot-item">
+            <div class="ns-hot-kicker ns-hot-kicker--purple">● Just In</div>
+            <p>Man walks past bakery without buying anything. Community "processing it."</p>
+          </div>
+        </aside>
+
+        <!-- CENTER: BEARD + BAKERY -->
+        <div class="ns-center">
+          <section id="beard">
+            <span class="ns-chip-ink">🧔 Beard Watch · Exclusive</span>
+            <h3 class="ns-beard-head">Is Kenzo Growing It Out For A <span class="cycle">Role??</span></h3>
+            <p class="ns-beard-deck">"He's basically Hagrid now," pals whisper. "We're afraid to bring it up."</p>
+
+            <div class="ns-beard-grid">
+              <div class="ns-beard-body">
+                <p>The beard, once "a Tuesday situation," has reportedly developed opinions. Barbers within a three-mile radius have been placed on high alert.</p>
+                <p>Is it method acting? A cry for help? A gentle man simply forgetting razors exist? <!-- TODO: deffgoingback / critics URL --> <a class="sat-link" href="#">The critics weigh in →</a></p>
+              </div>
+              <div>
+                <div class="ns-photo ns-photo--beard">
+                  <span class="ns-photo-label">[ beard photo ]<small>before / after</small></span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- BAKERY BOX -->
+          <section class="ns-bakery" id="bakery">
+            <div class="ns-bakery-tab">🥐 Exclusive Tell-All</div>
+            <h3 class="ns-bakery-head">Inside Rachel's Underground <span class="cycle">Bakery Empire</span></h3>
+            <p class="ns-bakery-body">Illicit sustenance laboratory hidden in the redwoods — right here in West County! Croissants so good they "should be illegal." Sources say the butter content is "a national security matter." We sent a reporter. He never came back. He's fine. He's just still eating.</p>
+            <!-- TODO: wire to Rachel Bakery -->
+            <a class="sat-link ns-bakery-link" href="#">Enter the bakery →</a>
+          </section>
+        </div>
+
+        <!-- RIGHT: AD + HOROSCOPES -->
+        <aside class="ns-right">
+          <section class="ns-ad" aria-label="Advertisement (parody)">
+            <div class="ns-ad-tag">Advertisement</div>
+            <div class="ns-ad-head">Melt Away 40 lbs With This One 3D Pinted Device</div>
+            <p class="ns-ad-sub">Doctors are FURIOUS. Nerds are RICH.</p>
+            <div class="ns-ad-disclaimer">Results Not Typical · Or Real</div>
+          </section>
+
+          <section class="ns-horoscopes" id="stars">
+            <div class="ns-bar ns-bar--stars">✦ Your Stars ✦</div>
+            <p><strong class="ns-h-zod-yellow">Aries</strong><br>A croissant enters your life. Do not fight it. You will lose.</p>
+            <p><strong class="ns-h-zod-cyan">Leo</strong><br>Someone is talking about you. It's the tabloid. It's us. Hi.</p>
+            <p><strong class="ns-h-zod-yellow">Scorpio</strong><br>Avoid pools, beards, and anyone named Kenzo. This week is a wash.</p>
+            <p><strong class="ns-h-zod-cyan">Pisces</strong><br>Your lucky number is a baguette. Interpret freely.</p>
+          </section>
+        </aside>
+      </section>
+
+      <!-- ===================== 7. POLL + READER MAIL ===================== -->
+      <section class="ns-bottom">
+
+        <!-- POLL -->
+        <div class="ns-poll">
+          <div class="ns-poll-kicker">▶ You Decide ◀</div>
+          <h3 class="ns-poll-head">Dad Bod or Father Figure?</h3>
+
+          <!-- initial view: two vote buttons -->
+          <div class="ns-poll-buttons" id="poll-buttons" data-poll="buttons">
+            <button class="ns-vote-btn"        type="button" data-vote="dad">🏊 Dad Bod</button>
+            <button class="ns-vote-btn ns-vote-btn--father" type="button" data-vote="father">🧔 Father Figure</button>
+          </div>
+
+          <!-- post-vote view: fixed result bars. Hidden until poll.js reveals it. -->
+          <div class="ns-poll-results" id="poll-results" data-poll="results" hidden>
+            <div class="ns-result-row">
+              <div class="ns-result-head">
+                <span id="dad-label">Dad Bod</span>
+                <span>71%</span>
+              </div>
+              <div class="ns-result-track">
+                <div class="ns-result-fill ns-result-fill--dad"></div>
+              </div>
+            </div>
+            <div class="ns-result-row">
+              <div class="ns-result-head">
+                <span id="father-label">Father Figure</span>
+                <span>29%</span>
+              </div>
+              <div class="ns-result-track">
+                <div class="ns-result-fill ns-result-fill--father"></div>
+              </div>
+            </div>
+            <p class="ns-poll-disclaimer">Poll of 4 sources, 3 of whom were the same guy. Thanks for voting!</p>
+          </div>
+        </div>
+
+        <!-- READER MAIL -->
+        <div class="ns-mail">
+          <div class="ns-mail-head">Dear Satirer,</div>
+          <div class="ns-mail-sub">Letters We Absolutely Made Up</div>
+          <div class="ns-mail-body">
+            <p>"Is the beard load-bearing at this point? Asking for the whole neighborhood." <em>— Concerned in the Cul-de-Sac</em></p>
+            <p>"I bought the miracle croissant. I am now flakier and much happier. 5 stars." <em>— Buttered &amp; Blessed</em></p>
+            <p>"Please stop photographing me by the pool." <em>— K.B. (unverified)</em></p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===================== 8. FOOTER ===================== -->
+    <footer class="ns-footer">
+      The National Satirer · A.D.D. Edition · Entirely Fictional · Suspiciously Delicious<br>
+      All persons, pools, and beards depicted are parody. No croissants were harmed. Probably.
+    </footer>
+
+  </div>
+
+  <script src="js/poll.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+/* ============================================================
+   THE NATIONAL SATIRER — Design System
+   tokens.css  ·  CSS custom properties (single source of truth)
+   ============================================================ */
+:root {
+  /* --- Color: ink & paper --- */
+  --sat-ink:        #1c1a17;  /* borders, bars, primary text */
+  --sat-ink-soft:   #2a2620;  /* body copy on paper */
+  --sat-paper:      #fdf7e3;  /* main newsprint */
+  --sat-paper-pure: #ffffff;  /* callout boxes */
+  --sat-caption:    #6b6455;  /* captions, disclaimers */
+
+  /* --- Color: tabloid accents --- */
+  --sat-red:    #ff2e63;  /* hot pink/red — primary alarm */
+  --sat-yellow: #ffe600;  /* alarm yellow — highlights */
+  --sat-cyan:   #00d1c1;  /* electric cyan */
+  --sat-green:  #00a884;  /* deep teal panel */
+  --sat-purple: #7c3aff;  /* violet panel */
+
+  /* --- Color: backdrop & placeholder --- */
+  --sat-backdrop:      #14121a;  /* dark page behind the card */
+  --sat-backdrop-alt:  #191527;  /* backdrop hatch stripe */
+  --sat-photo-a:       #d8d2c2;  /* photo placeholder hatch */
+  --sat-photo-b:       #cec7b4;
+
+  /* --- Typography --- */
+  --sat-font-display: 'Anton', Impact, sans-serif;      /* headlines */
+  --sat-font-ui:      'Oswald', 'Arial Narrow', sans-serif; /* labels/kickers */
+  --sat-font-body:    'PT Serif', Georgia, serif;       /* copy/decks */
+
+  --sat-tracking-tight: -0.02em;  /* big display */
+  --sat-tracking-ui:     0.12em;  /* labels */
+  --sat-tracking-wide:   0.3em;   /* taglines */
+
+  /* --- Structure --- */
+  --sat-border:        4px solid var(--sat-ink);
+  --sat-border-col:    3px solid var(--sat-ink);
+  --sat-border-dash:   2px dashed var(--sat-ink);
+  --sat-border-accent: 4px solid var(--sat-red);
+  --sat-radius: 0;                 /* NEVER round corners */
+  --sat-canvas-max: 1180px;
+
+  /* --- Shadow --- */
+  --sat-shadow-card: 0 30px 80px rgba(0,0,0,.6);
+  --sat-shadow-title: 3px 3px 0 var(--sat-yellow), 6px 6px 0 var(--sat-red);
+}

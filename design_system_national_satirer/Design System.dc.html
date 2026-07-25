@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  a { color: #ff2e63; }
+  @keyframes sat-pulse { 0%,100% { transform: rotate(-8deg) scale(1); } 50% { transform: rotate(-8deg) scale(1.12); } }
+  @keyframes sat-spin { to { transform: rotate(360deg); } }
+  @keyframes sat-blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0.15; } }
+  @keyframes sat-hue { to { filter: hue-rotate(360deg); } }
+  @keyframes sat-wobble { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+  @keyframes sat-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  @keyframes sat-shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-3px) rotate(-1deg);} 40% { transform: translateX(3px) rotate(1deg);} 60% { transform: translateX(-2px);} 80% { transform: translateX(2px);} }
+  @keyframes sat-flashborder { 0%,100% { border-color:#ff2e63; box-shadow:0 0 0 0 #ff2e6355; } 50% { border-color:#ffe600; box-shadow:0 0 22px 4px #ffe60088; } }
+  @keyframes sat-flash-bg { 0%,100% { background:#ff2e63; } 33% { background:#00d1c1; } 66% { background:#7c3aff; } }
+  @keyframes sat-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes sat-slide-color { 0% { color:#ff2e63; } 33% { color:#7c3aff; } 66% { color:#00a884; } 100% { color:#ff2e63; } }
+</style>
+</helmet>
+<div style="min-height:100vh; background:#14121a; background-image: repeating-linear-gradient(45deg, #191527 0 22px, #14121a 22px 44px); padding:40px 24px; box-sizing:border-box; font-family:'PT Serif',Georgia,serif;">
+  <div style="max-width:1100px; margin:0 auto;">
+
+    <!-- Title -->
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.3em; font-size:12px; color:#ffe600; margin-bottom:8px;">Design System · v1</div>
+      <h1 style="font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; font-size:72px; line-height:.85; margin:0; color:#fdf7e3; text-shadow:3px 3px 0 #ffe600, 6px 6px 0 #ff2e63;">The National<br>Satirer</h1>
+      <p style="font-family:'PT Serif',serif; font-style:italic; color:#cfc7b4; font-size:17px; max-width:620px; margin:16px auto 0;">A loud supermarket-tabloid parody kit — heavy newsprint frames, four screaming accent colors, three fonts, and a whole lot of animation. The truth is in here. Sort of.</p>
+    </div>
+
+    <!-- ============ COLORS ============ -->
+    <div style="background:#fdf7e3; border:4px solid #1c1a17; padding:26px 30px; margin-bottom:26px;">
+      <div style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:30px; color:#1c1a17; margin-bottom:4px;">01 · Color</div>
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#6b6455; margin-bottom:20px;">Ink & paper base · four alarm accents · never more than two accents per panel</div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:14px;">
+        <sc-for list="{{ swatches }}" as="s" hint-placeholder-count="10">
+          <div>
+            <div style="height:78px; border:3px solid #1c1a17; background:{{ s.hex }};"></div>
+            <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-weight:700; font-size:12px; color:#1c1a17; margin-top:6px;">{{ s.name }}</div>
+            <div style="font-family:'Oswald',sans-serif; font-size:11px; color:#6b6455;">{{ s.hex }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- ============ TYPE ============ -->
+    <div style="background:#fdf7e3; border:4px solid #1c1a17; padding:26px 30px; margin-bottom:26px;">
+      <div style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:30px; color:#1c1a17; margin-bottom:4px;">02 · Typography</div>
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#6b6455; margin-bottom:22px;">Anton headlines · Oswald labels · PT Serif copy</div>
+
+      <div style="border-bottom:2px dashed #1c1a17; padding-bottom:18px; margin-bottom:18px;">
+        <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:11px; letter-spacing:.1em; color:#ff2e63; font-weight:700;">Display — Anton, uppercase, line-height .85–.9</div>
+        <div style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:64px; line-height:.85; color:#1c1a17; letter-spacing:-.02em;">Shocking!</div>
+      </div>
+      <div style="border-bottom:2px dashed #1c1a17; padding-bottom:18px; margin-bottom:18px;">
+        <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:11px; letter-spacing:.1em; color:#ff2e63; font-weight:700;">Label / kicker — Oswald 700, tracking .12–.3em</div>
+        <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-weight:700; letter-spacing:.2em; font-size:20px; color:#1c1a17; margin-top:4px;">World Exclusive</div>
+      </div>
+      <div>
+        <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:11px; letter-spacing:.1em; color:#ff2e63; font-weight:700;">Body / deck — PT Serif, roman & italic</div>
+        <p style="font-family:'PT Serif',serif; font-size:17px; line-height:1.5; color:#1c1a17; margin:6px 0 0;">Witnesses report the star reclining <em>"with the confidence of a man who has never once checked his email."</em> Reps declined to comment.</p>
+      </div>
+    </div>
+
+    <!-- ============ COMPONENTS ============ -->
+    <div style="background:#fdf7e3; border:4px solid #1c1a17; padding:26px 30px; margin-bottom:26px;">
+      <div style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:30px; color:#1c1a17; margin-bottom:4px;">03 · Components</div>
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#6b6455; margin-bottom:22px;">The reusable parts every spread is built from</div>
+
+      <!-- Banners -->
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:12px; letter-spacing:.1em; color:#6b6455; margin-bottom:8px;">Banners / chips</div>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px;">
+        <span style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#fdf7e3; background:#ff2e63; padding:5px 14px; font-size:14px; animation:sat-shake 3s ease-in-out infinite;">⚡ Shocking ⚡</span>
+        <span style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#1c1a17; background:#ffe600; padding:5px 14px; font-size:14px;">Exclusive</span>
+        <span style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.12em; background:#1c1a17; color:#ffe600; padding:5px 14px; font-size:14px; animation:sat-blink 1.1s steps(1) infinite;">World Exclusive</span>
+        <span style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#fdf7e3; background:#7c3aff; padding:5px 14px; font-size:14px;">Bombshell</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; align-items:start;">
+        <!-- Starburst -->
+        <div>
+          <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:12px; letter-spacing:.1em; color:#6b6455; margin-bottom:10px;">Starburst</div>
+          <div style="height:150px; display:flex; align-items:center; justify-content:center; background:#ebe4d3; border:3px solid #1c1a17;">
+            <div style="width:120px; height:120px; display:flex; align-items:center; justify-content:center; text-align:center; color:#1c1a17; font-family:'Anton',sans-serif; text-transform:uppercase; line-height:.9; background:conic-gradient(from 0deg,#ffe600 0 15deg,#ff2e63 15deg 18deg,#ffe600 18deg 33deg,#ff2e63 33deg 36deg); clip-path:polygon(50% 0,61% 18%,79% 8%,79% 30%,100% 30%,84% 50%,100% 70%,79% 70%,79% 92%,61% 82%,50% 100%,39% 82%,21% 92%,21% 70%,0 70%,16% 50%,0 30%,21% 30%,21% 8%,39% 18%); animation:sat-pulse 1.6s ease-in-out infinite;">
+              <span style="font-size:22px; transform:rotate(-8deg); animation:sat-hue 5s linear infinite;">World<br>Exclusive!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo placeholder -->
+        <div>
+          <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:12px; letter-spacing:.1em; color:#6b6455; margin-bottom:10px;">Photo placeholder</div>
+          <div style="height:150px; position:relative; background:repeating-linear-gradient(45deg,#d8d2c2 0 12px,#cec7b4 12px 24px); border:4px solid #1c1a17; display:flex; align-items:center; justify-content:center; animation:sat-flashborder 1.6s ease-in-out infinite;">
+            <div style="position:absolute; width:44%; height:56%; border:5px solid #ff2e63; border-radius:50%; top:22%; left:14%; transform:rotate(-6deg); animation:sat-pulse 1.3s ease-in-out infinite;"></div>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:.1em; color:#6b6455; text-transform:uppercase;">[ photo here ]</span>
+            <div style="position:absolute; top:-13px; left:16px; background:#ffe600; color:#1c1a17; font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; font-size:11px; padding:3px 10px; transform:rotate(-4deg);">Caught!!</div>
+          </div>
+        </div>
+
+        <!-- Barcode + price -->
+        <div>
+          <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:12px; letter-spacing:.1em; color:#6b6455; margin-bottom:10px;">Price + barcode</div>
+          <div style="height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; background:#ebe4d3; border:3px solid #1c1a17;">
+            <div style="font-family:'Anton',sans-serif; font-size:40px; line-height:1; animation:sat-slide-color 3s linear infinite;">$4<span style="font-size:18px;">.99</span></div>
+            <div style="width:100px; height:36px; background:repeating-linear-gradient(90deg,#1c1a17 0 2px,transparent 2px 4px,#1c1a17 4px 5px,transparent 5px 9px);"></div>
+            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:.15em; color:#1c1a17;">0 000404 999999</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gossip item + poll + ad row -->
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; align-items:start; margin-top:24px;">
+        <!-- Gossip -->
+        <div>
+          <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:12px; letter-spacing:.1em; color:#6b6455; margin-bottom:10px;">Gossip blurb</div>
+          <div style="background:#00d1c1; border:3px solid #1c1a17; padding:14px;">
+            <div style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; color:#7c3aff; font-size:12px; letter-spacing:.08em; animation:sat-blink 1.6s steps(1) infinite;">● Spotted</div>
+            <p style="margin:3px 0 0; font-family:'PT Serif',serif; font-size:14px; line-height:1.4; color:#1c1a17;">Local barista pulls a <strong>THIRD</strong> shot before 9am. Regulars "shook."</p>
+          </div>
+        </div>
+        <!-- Poll -->
+        <div>
+          <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:12px; letter-spacing:.1em; color:#6b6455; margin-bottom:10px;">Poll</div>
+          <div style="background:#ffe600; border:3px solid #1c1a17; padding:14px;">
+            <sc-if value="{{ showButtons }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <button onClick="{{ voteA }}" style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-weight:700; font-size:15px; padding:10px; border:3px solid #1c1a17; background:#fdf7e3; color:#1c1a17; cursor:pointer;" style-hover="background:#ff2e63; color:#fdf7e3;">Yes</button>
+                <button onClick="{{ voteB }}" style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-weight:700; font-size:15px; padding:10px; border:3px solid #1c1a17; background:#fdf7e3; color:#1c1a17; cursor:pointer;" style-hover="background:#7c3aff; color:#fdf7e3;">Also Yes</button>
+              </div>
+            </sc-if>
+            <sc-if value="{{ showResults }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-family:'Oswald',sans-serif; text-transform:uppercase; font-weight:700; font-size:12px; color:#1c1a17;"><span>Yes</span><span>71%</span></div>
+                  <div style="height:18px; background:#fdf7e3; border:2px solid #1c1a17;"><div style="height:100%; width:71%; background:#ff2e63;"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-family:'Oswald',sans-serif; text-transform:uppercase; font-weight:700; font-size:12px; color:#1c1a17;"><span>Also Yes</span><span>29%</span></div>
+                  <div style="height:18px; background:#fdf7e3; border:2px solid #1c1a17;"><div style="height:100%; width:29%; background:#7c3aff;"></div></div>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <!-- Ad -->
+        <div>
+          <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:12px; letter-spacing:.1em; color:#6b6455; margin-bottom:10px;">Miracle ad</div>
+          <div style="border:4px double #1c1a17; padding:12px; text-align:center; background:#ffe600; animation:sat-wobble 5s ease-in-out infinite;">
+            <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-weight:700; font-size:10px; letter-spacing:.15em; color:#ff2e63; animation:sat-blink 1s steps(1) infinite;">Advertisement</div>
+            <div style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:22px; line-height:.9; color:#1c1a17; margin:5px 0;">One Weird Trick</div>
+            <div style="background:#ff2e63; color:#fdf7e3; font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; font-size:12px; padding:6px; animation:sat-flash-bg 3s steps(1) infinite;">Not Real</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ MOTION ============ -->
+    <div style="background:#fdf7e3; border:4px solid #1c1a17; padding:26px 30px; margin-bottom:26px;">
+      <div style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:30px; color:#1c1a17; margin-bottom:4px;">04 · Motion</div>
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#6b6455; margin-bottom:20px;">13 infinite keyframes · gate behind prefers-reduced-motion in production</div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:12px; letter-spacing:.05em; color:#1c1a17;">
+        <div style="border:2px solid #1c1a17; padding:10px; text-align:center;">sat-marquee<br><span style="color:#6b6455; font-size:10px;">ticker scroll</span></div>
+        <div style="border:2px solid #1c1a17; padding:10px; text-align:center;">sat-pulse<br><span style="color:#6b6455; font-size:10px;">starburst / circle</span></div>
+        <div style="border:2px solid #1c1a17; padding:10px; text-align:center;">sat-blink<br><span style="color:#6b6455; font-size:10px;">alarm flash</span></div>
+        <div style="border:2px solid #1c1a17; padding:10px; text-align:center;">sat-slide-color<br><span style="color:#6b6455; font-size:10px;">headline cycle</span></div>
+        <div style="border:2px solid #1c1a17; padding:10px; text-align:center;">sat-wobble<br><span style="color:#6b6455; font-size:10px;">ad / photo</span></div>
+        <div style="border:2px solid #1c1a17; padding:10px; text-align:center;">sat-shake<br><span style="color:#6b6455; font-size:10px;">banner</span></div>
+        <div style="border:2px solid #1c1a17; padding:10px; text-align:center;">sat-flashborder<br><span style="color:#6b6455; font-size:10px;">photo frame</span></div>
+        <div style="border:2px solid #1c1a17; padding:10px; text-align:center;">sat-hue<br><span style="color:#6b6455; font-size:10px;">color churn</span></div>
+      </div>
+    </div>
+
+    <!-- ============ VOICE ============ -->
+    <div style="background:#1c1a17; border:4px solid #1c1a17; padding:26px 30px;">
+      <div style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:30px; color:#ffe600; margin-bottom:16px;">05 · Voice & Rules</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; font-family:'PT Serif',serif; color:#fdf7e3; font-size:15px; line-height:1.55;">
+        <div>
+          <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-weight:700; letter-spacing:.1em; color:#ff2e63; font-size:13px; margin-bottom:6px;">Do</div>
+          <ul style="margin:0; padding-left:18px;">
+            <li>SCREAM in Anton caps for every headline.</li>
+            <li>Quote anonymous "sources" who then give their full name.</li>
+            <li>Hard newsprint edges — zero border-radius.</li>
+            <li>Undercut every claim with a footnote of doubt.</li>
+            <li>Wire fake stories to the owner's real sites.</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-weight:700; letter-spacing:.1em; color:#00d1c1; font-size:13px; margin-bottom:6px;">Don't</div>
+          <ul style="margin:0; padding-left:18px;">
+            <li>Use more than two accent colors on one panel.</li>
+            <li>Round corners or add soft pastel gradients.</li>
+            <li>Punch down — roast affectionately, keep it silly.</li>
+            <li>Let a claim stand without a disclaimer.</li>
+            <li>Forget prefers-reduced-motion.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { vote: null };
+  renderVals() {
+    const swatches = [
+      { name: 'Ink',    hex: '#1c1a17' },
+      { name: 'Paper',  hex: '#fdf7e3' },
+      { name: 'Red',    hex: '#ff2e63' },
+      { name: 'Yellow', hex: '#ffe600' },
+      { name: 'Cyan',   hex: '#00d1c1' },
+      { name: 'Green',  hex: '#00a884' },
+      { name: 'Purple', hex: '#7c3aff' },
+      { name: 'Caption',hex: '#6b6455' },
+      { name: 'Backdrop',hex: '#14121a' },
+      { name: 'Photo',  hex: '#d8d2c2' },
+    ];
+    const vote = this.state.vote;
+    return {
+      swatches,
+      showButtons: !vote,
+      showResults: !!vote,
+      voteA: () => this.setState({ vote: 'a' }),
+      voteB: () => this.setState({ vote: 'b' }),
+    };
+  }
+}
+</script>
+</body>
+</html>
